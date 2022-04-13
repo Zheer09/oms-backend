@@ -22,6 +22,7 @@
    },
    "devDependencies": {
       "@types/node": "^16.11.10",
+      "aws-sdk": "^2.1113.0",
       "ts-node": "10.7.0",
       "typescript": "4.5.2"
    }
