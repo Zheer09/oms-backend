@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from "typeorm"
+import { Forms } from "./form"
 
 export enum accountType{
     CITIZENS= "citizen",
@@ -14,7 +15,7 @@ export class Accounts extends BaseEntity {
     @Column({unique: true})
     emailaddress: string
 
-    @Column("text")
+    @Column("text") 
     password: string
 
     @Column("numeric")
@@ -34,6 +35,15 @@ export class Accounts extends BaseEntity {
     typeacc: string
 
     @Column({nullable: true})
+    status: string
+
+    @Column({nullable: true})
     jobTitle: string
+
+    @OneToMany(
+        () => Forms,
+        (complainForm) => complainForm.account
+    )
+    complainForm: Forms[]
 
 }

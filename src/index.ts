@@ -4,10 +4,12 @@ import { createClientRouter } from "./controller/create_account";
 import { getClientRouter } from "./controller/get_account";
 import { uploadImage } from "./controller/upload_Image";
 import { AppDataSource } from "./data-source"
+import {createComplainForm} from "./controller/create_form";
 
 //const awsConfig = require("./config-aws");
 import { Accounts } from "./entity/accounts"
-import { User } from "./entity/User"
+import { uploadFormImage } from "./controller/uploadForm_images";
+
 
 const app = express();
 
@@ -20,7 +22,9 @@ try{
 
     app.use(createClientRouter);
     app.use(getClientRouter);
-    //app.use(uploadImage);
+    app.use(uploadImage);
+    app.use(createComplainForm);
+    app.use(uploadFormImage);
 
     app.listen(8080, () => {
         console.log('Now running on port 8080');

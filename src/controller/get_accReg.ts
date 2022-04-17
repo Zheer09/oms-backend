@@ -5,16 +5,14 @@ import { AppDataSource } from "../data-source";
 const router = express.Router();
 
 
-router.get('/api/getAcc/:emailaddress/:password', async (req, res) => {
+router.get('/api/getreg/:emailaddress/', async (req, res) => {
 
     const { 
         emailaddress,
-        password 
     } = req.params;
 
     const account = await AppDataSource.createQueryBuilder(Accounts,'account')
     .where("account.emailaddress = :emailaddress" ,{emailaddress})
-    .andWhere("account.password = :password",{password})
     .getOne()
 
     if(!account){
@@ -22,7 +20,7 @@ router.get('/api/getAcc/:emailaddress/:password', async (req, res) => {
     }
 
 
-	return res.json(account);
+	return res.json({msg: "valid"});
 
 		
 });

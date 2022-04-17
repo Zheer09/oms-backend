@@ -10,7 +10,8 @@ router.post('/api/createAcc', async (req, res) => {
 		emailaddress,
 		password,
 		phone_num,
-        typeacc
+        typeacc,
+		status
 	} = req.body;
 
 	const account = null;
@@ -22,7 +23,8 @@ router.post('/api/createAcc', async (req, res) => {
 		emailaddress,
         password,
         phone_num,
-        typeacc: accountType.CITIZENS
+        typeacc: accountType.CITIZENS,
+		status,
 		
 	});
 	
@@ -40,6 +42,7 @@ router.post('/api/createAcc', async (req, res) => {
 			emailaddress,
 			password,
 			phone_num,
+			status,
 			typeacc: accountType.MAINTAINER
 			
 		});

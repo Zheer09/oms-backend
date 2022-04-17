@@ -15,12 +15,13 @@ signatureVersion: "v4",
 //   useAccelerateEndpoint: true
 });
 
-router.post("/api/uploadImage", async (req, res) =>{
+router.post("/api/uploadFormImage/:formID", async (req, res) =>{
 
     
     let fileType = req.body.fileType;
     let userID = req.body.id;
     let fileName =req.body.fileName;
+    let formID = req.params.formID
     if (fileType != ".jpg" && fileType != ".png" && fileType != ".jpeg") {
       return res
         .status(403)
@@ -33,7 +34,7 @@ router.post("/api/uploadImage", async (req, res) =>{
     
     const s3Params = {
       Bucket: S3_BUCKET,
-      Key: `User${userID}/`+ fileName + "." + fileType,
+      Key: `User${userID}/`+ `${formID}/`+ fileName + "." + fileType,
       Expires: 60 * 60,
       ContentType: "image/" + fileType,
       ACL: "public-read",
@@ -56,7 +57,7 @@ router.post("/api/uploadImage", async (req, res) =>{
     return null;
   });
 
-  export { router as uploadImage };
+  export { router as uploadFormImage };
 
 
   
