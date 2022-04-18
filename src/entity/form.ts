@@ -33,7 +33,7 @@ export class Forms extends BaseEntity {
         () => Accounts,
         (account) => account.complainForm
     )
-    @JoinColumn({name: "user_id"})
+    @JoinColumn({name: "userId"})
     account: Accounts
 
 }

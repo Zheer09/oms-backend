@@ -9,6 +9,8 @@ import {createComplainForm} from "./controller/create_form";
 //const awsConfig = require("./config-aws");
 import { Accounts } from "./entity/accounts"
 import { uploadFormImage } from "./controller/uploadForm_images";
+import { updateComplainimage } from "./controller/update_form";
+import { geFormsRouter } from "./controller/get_forms";
 
 
 const app = express();
@@ -25,6 +27,8 @@ try{
     app.use(uploadImage);
     app.use(createComplainForm);
     app.use(uploadFormImage);
+    app.use(updateComplainimage);
+    app.use(geFormsRouter);
 
     app.listen(8080, () => {
         console.log('Now running on port 8080');

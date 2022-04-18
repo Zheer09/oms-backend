@@ -15,6 +15,12 @@ router.post('/api/createAcc', async (req, res) => {
 	} = req.body;
 
 	const account = null;
+
+	const accountID = await Accounts.findOneBy({emailaddress: emailaddress})
+
+	if (accountID){
+		res.json({msg: "emailExist"})
+	}
     
 	if(typeacc === "citizen"){
 	const account = Accounts.create({

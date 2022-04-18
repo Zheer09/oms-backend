@@ -34,7 +34,7 @@ router.post("/api/uploadFormImage/:formID", async (req, res) =>{
     
     const s3Params = {
       Bucket: S3_BUCKET,
-      Key: `User${userID}/`+ `${formID}/`+ fileName + "." + fileType,
+      Key: `User${userID}/`+ `Form${formID}/`+ fileName + "." + fileType,
       Expires: 60 * 60,
       ContentType: "image/" + fileType,
       ACL: "public-read",
