@@ -12,7 +12,6 @@ accessKeyId: awsConfig.accessKeyId,
 secretAccessKey: awsConfig.secretAccessKey,
 region: awsConfig.region,
 signatureVersion: "v4",
-//   useAccelerateEndpoint: true
 });
 
 router.post("/api/uploadImage", async (req, res) =>{
@@ -38,6 +37,7 @@ router.post("/api/uploadImage", async (req, res) =>{
       ContentType: "image/" + fileType,
       ACL: "public-read",
     };
+
   
     s3.getSignedUrl("putObject", s3Params, (err, data) => {
       if (err) {

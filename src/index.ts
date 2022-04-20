@@ -7,10 +7,12 @@ import { AppDataSource } from "./data-source"
 import {createComplainForm} from "./controller/create_form";
 
 //const awsConfig = require("./config-aws");
-import { Accounts } from "./entity/accounts"
 import { uploadFormImage } from "./controller/uploadForm_images";
 import { updateComplainimage } from "./controller/update_form";
 import { geFormsRouter } from "./controller/get_forms";
+import { deleteForm } from "./controller/delete_form";
+import { deleteImage } from "./controller/delete_image";
+import { updateForm } from "./controller/edit_form";
 
 
 const app = express();
@@ -29,6 +31,9 @@ try{
     app.use(uploadFormImage);
     app.use(updateComplainimage);
     app.use(geFormsRouter);
+    app.use(deleteForm);
+    app.use(deleteImage);
+    app.use(updateForm);
 
     app.listen(8080, () => {
         console.log('Now running on port 8080');

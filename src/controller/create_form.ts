@@ -1,6 +1,5 @@
 import express from 'express';
 import { Accounts , accountType } from '../entity/accounts';
-import { AppDataSource } from "../data-source";
 import { Forms } from '../entity/form';
 
 const router = express.Router();
