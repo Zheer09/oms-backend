@@ -5,7 +5,7 @@ import { Forms } from '../entity/form';
 const router = express.Router();
 
 
-router.put('/api/updateForm/:userID/:formID', async (req, res) => {
+router.put('/api/updateFormComp/:userID/:formID', async (req, res) => {
 
     const { 
         userID,
@@ -24,11 +24,8 @@ router.put('/api/updateForm/:userID/:formID', async (req, res) => {
 
       
 
-      const accountID = await Accounts.findOneBy({id: parseInt(userID)})
+    const accountID = await Accounts.findOneBy({id: parseInt(userID)})
 
-
-    // const forms = await AppDataSource.createQueryBuilder().update(Forms).set({formImages: [images]}).where("complainForm.userId = :id" ,{id})
-    // .andWhere("complainForm.formId = :formID",{formID}).updateEntity(true).execute()
 
 
     const UpdateForm = await Forms.save({

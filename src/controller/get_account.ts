@@ -18,7 +18,7 @@ router.get('/api/getAcc/:emailaddress/:password', async (req, res) => {
     .getOne()
 
     if(!account){
-        res.json({msg: "invalidacc"})
+        return res.json({msg: "invalidacc"})
     }
 
 
