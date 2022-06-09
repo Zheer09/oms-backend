@@ -36,4 +36,7 @@ export class Forms extends BaseEntity {
     @JoinColumn({name: "userId"})
     account: Accounts
 
+    @Column({nullable: true})
+    maintainer: string
+
 }

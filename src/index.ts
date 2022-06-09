@@ -16,6 +16,7 @@ import { deleteImage } from "./controller/delete_image";
 import { updateForm } from "./controller/edit_form";
 import { updateAccount } from "./controller/update_account";
 import { geAllRouter } from "./controller/get_numberDash";
+import { geAllFormsRouter } from "./controller/get_allForms";
 
 
 const app = express();
@@ -39,6 +40,7 @@ try{
     app.use(updateForm);
     app.use(updateAccount);
     app.use(geAllRouter);
+    app.use(geAllFormsRouter);
 
     app.listen(8080, () => {
         console.log('Now running on port 8080');
