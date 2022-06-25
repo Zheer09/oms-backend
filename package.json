@@ -2,16 +2,16 @@
    "name": "node",
    "version": "1.0.0",
    "description": "",
-   "main": "app.js",
+   "main": "index.js",
    "engines": {
-      "node": ">=16.0.0 <17.0.0",
+      "node": ">=16.0.0 <17.5.0",
       "npm": ">=8.0.0 <9.0.0"
     },
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "dev:start": "nodemon --watch './**/*.ts' --exec ts-node src/index.ts",
-      "start": "node dist/index.js",
-      "build": "tsc -p .",
+      "start": "npm i aws-sdk && node dist/index.js",
+      "build": "tsc",
       "typeorm": "typeorm-ts-node-commonjs"
    },
    "author": "",
